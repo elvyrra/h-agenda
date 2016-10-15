@@ -1,0 +1,50 @@
+; Menus
+main-menu-title = "Utility"
+agenda-menu-title = "Agenda"
+page-title = "Agenda"
+
+; List View and Form
+contacts-label = "Contacts"
+event-form-search-label = "Add a contact?"
+event-form-search-placeholder = "Lastname or firstname or company"
+btn-add-event-label = "Add event"
+events-list-startDate-label = "Date"
+events-list-title-label = "Event"
+events-list-place-label = "Place"
+events-list-startDate-content = "{day} {date} <br /> at : {time}"
+delete-event-confirmation = "Are you sure to delete this event?"
+list-title = "Agenda"
+agenda-form-title = "Edit event"
+title-label = "Title"
+description-label = "Description"
+place-label = "Place"
+date-label = "Date"
+time-label = "Hour"
+
+; Calendar View
+calendar-view-btn = "Calendar view"
+calendar-view-year = "Year"
+calendar-view-month = "Month"
+calendar-view-week = "Week"
+calendar-back-list = "List view"
+
+pdf-title = "Agenda"
+
+; common
+day-1-3cars = "Mon"
+day-2-3cars = "Tue"
+day-3-3cars = "Wed"
+day-4-3cars = "Thu"
+day-5-3cars = "Fri"
+day-6-3cars = "Sat"
+day-7-3cars = "Sun"
+
+day-1-full = "Monday"
+day-2-full = "Tuesday"
+day-3-full = "Wednesday"
+day-4-full = "Thurdsay"
+day-5-full = "Friday"
+day-6-full = "Saturday"
+day-7-full = "Sunday"
+
+now = "Now"

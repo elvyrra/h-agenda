@@ -1,0 +1,54 @@
+; Menus
+main-menu-title = "Utilitaires"
+agenda-menu-title = "Agenda"
+page-title = "Agenda"
+
+; List View and Form
+contacts-label = "Contacts"
+event-form-search-label = "Associé un contact?"
+event-form-search-placeholder = "Nom ou prénom ou société"
+btn-add-event-label = "Ajouter un événement"
+events-list-startDate-label = "Date"
+events-list-title-label = "Evénement"
+events-list-place-label = "Lieu"
+events-list-startDate-content = "{day} {date}  à : {time}"
+delete-event-confirmation = "Voulez-vous réellement supprimer cet événement de votre agenda ?"
+list-title = "Agenda"
+agenda-form-title = "Editer un événement"
+title-label = "Titre"
+description-label = "Description"
+place-label = "Lieu"
+date-label = "Date"
+time-label = "Heure"
+
+
+startDate-label = "Début"
+endDate-label = "Fin"
+
+; Calendar View
+calendar-view-btn = "Vue calendrier"
+calendar-view-year = "Année"
+calendar-view-month = "Mois"
+calendar-view-week = "Semaine"
+calendar-back-list = "Vue en liste"
+
+pdf-title = "Agenda"
+
+; common
+day-1-3cars = "Lun"
+day-2-3cars = "Mar"
+day-3-3cars = "Mer"
+day-4-3cars = "Jeu"
+day-5-3cars = "Ven"
+day-6-3cars = "Sam"
+day-7-3cars = "Dim"
+
+day-1-full = "Lundi"
+day-2-full = "Mardi"
+day-3-full = "Mercredi"
+day-4-full = "Jeudi"
+day-5-full = "Vendredi"
+day-6-full = "Samedi"
+day-7-full = "Dimanche"
+
+now = "En cours"
