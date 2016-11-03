@@ -1,6 +1,6 @@
 <?php
 
-namespace Hawk\Plugins\Agenda;
+namespace Hawk\Plugins\HAgenda;
 
 App::router()->prefix('/h-agenda', function(){
     App::router()->auth(App::session()->isLogged(), function(){
