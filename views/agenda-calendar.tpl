@@ -1,4 +1,3 @@
-
 <div id="h-agenda-calendar-navigation" class="row">
     <div class="col-xs-12">
         {button icon="list-alt" label="{text key='h-agenda.calendar-back-list'}" ko-click="backToList" class="btn-info pull-left"  }
