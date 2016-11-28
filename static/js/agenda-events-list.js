@@ -29,15 +29,14 @@ require(['app'], function() {
             });
         }
     });
-    /*
+    
     $('#print-agenda-list-button').click(function() {
         var selectedLines = [];
 
-        list.node.find('.list-select-line:checked').each(function() {
+        $(list.node()).find('.list-select-line:checked').each(function() {
             selectedLines.push($(this).attr('value'));
         });
 
         window.open(app.getUri('h-agenda-print') + (selectedLines.length ? '?events=' + selectedLines.join(',') : ''));
     });
-    */
 });

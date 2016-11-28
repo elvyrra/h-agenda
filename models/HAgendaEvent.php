@@ -34,6 +34,10 @@ class HAgendaEvent extends Model{
             'auto_increment' => true
         ),
 
+        'personId' => array(
+            'type' => 'INT(11)',
+        ),
+
         'userId' => array(
             'type' => 'INT(11)',
         ),
@@ -78,7 +82,22 @@ class HAgendaEvent extends Model{
     /**
      * The table constraints
      */
-    protected static $constraints = array();
+    protected static $constraints = array(
+        'HAgendaEventId_ibfk' => array(
+            'type' => 'foreign',
+            'fields' => array(
+                'userId'
+            ),
+            'references' => array(
+                'model' => 'User',
+                'fields' => array(
+                    'id'
+                )
+            ),
+            'on_update' => 'CASCADE',
+            'on_delete' => 'CASCADE'
+        ),
+    );
 
     /**
      * Constructor
@@ -89,7 +108,7 @@ class HAgendaEvent extends Model{
 
     /**
      * Get the number of day between today and the event start date
-     *
+     *=
      * @return int  day left before event
      */
     public function getDayLeft() {

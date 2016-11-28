@@ -22,6 +22,8 @@ date-label = "Date"
 time-label = "Heure"
 
 
+contact-already-in-event = "Contact déja associé à l'évenement!"
+
 startDate-label = "Début"
 endDate-label = "Fin"
 

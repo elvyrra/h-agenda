@@ -21,6 +21,11 @@ place-label = "Place"
 date-label = "Date"
 time-label = "Hour"
 
+contact-already-in-event = "Contact already in event!"
+
+startDate-label = "Start date"
+endDate-label = "End date"
+
 ; Calendar View
 calendar-view-btn = "Calendar view"
 calendar-view-year = "Year"
