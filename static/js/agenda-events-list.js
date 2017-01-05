@@ -2,10 +2,10 @@
 
 'use strict';
 
-require(['app'], function() {
+require(['app', 'jquery', 'lang', 'emv'], function() {
     var list = app.lists['h-agenda-events-list'];
 
-    $('[data-toggle="popover"]').popover();
+   
 
     $('#delete-agenda-events-button').click(function() {
         if (confirm(Lang.get('h-agenda.delete-event-confirmation'))) {
@@ -39,4 +39,7 @@ require(['app'], function() {
 
         window.open(app.getUri('h-agenda-print') + (selectedLines.length ? '?events=' + selectedLines.join(',') : ''));
     });
+
+
+    $('[data-toggle="popover"]').popover();
 });

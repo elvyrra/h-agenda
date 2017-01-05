@@ -128,9 +128,9 @@ class AgendaController extends Controller{
                     'label' => Lang::get($this->_plugin . '.events-list-title-label'),
                     'sort' => false,
                     'display' => function($value, $field, $event) {
-                        return '<a class="pointer" data-html="true" data-placement="right" data-toggle="popover" title="' . $value . '" data-content="' . $event->getFullDescription() . '">' . $value . '</a>';
+                        return '<a class="pointer"  data-placement="right" data-toggle="popover" title="' . $value . '" data-trigger="focus" data-content="' .  $value . '">' . $value . '</a>';
                     },
-                ),
+                ),//data-html="true"   $event->getFullDescription()
 
                 'description' => array(
                     'field' => 'CONCAT(LEFT(description, 80), IF(LENGTH(description) < 77, "", "..."))',
