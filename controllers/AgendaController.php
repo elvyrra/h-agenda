@@ -230,7 +230,7 @@ class AgendaController extends Controller{
                         'required' => true,
                         "label" => Lang::get($this->_plugin . '.startDate-label'),
                         'attributes' => array(
-                            'ko-value' => 'startDate',
+                            'e-value' => 'startDate',
                         ),
                         'value' => $date ? $date : NULL,
                     )),
@@ -239,7 +239,7 @@ class AgendaController extends Controller{
                         "name" => "startTime",
                         'required' => true,
                         'attributes' => array(
-                            'ko-value' => 'startTime',
+                            'e-value' => 'startTime',
                         ),
                         "nl" => false,
                     )),
@@ -257,7 +257,7 @@ class AgendaController extends Controller{
                         "name" => "endTime",
                         "nl" => false,
                         'attributes' => array(
-                            'ko-value' => 'endTime',
+                            'e-value' => 'endTime',
                         ),
                     )),
                 ),
@@ -270,9 +270,10 @@ class AgendaController extends Controller{
                         "placeholder" => Lang::get($this->_plugin . '.event-form-search-placeholder'),
                         'attributes' => array(
                             'autocomplete' => 'off',
-                            'ko-value' => 'search',
+                            'e-value' => 'search',
                             'style' => "width: 300px;",
-                            'ko-autocomplete' => '{source : contactAutocompleteSource, change : onContactChosen}'
+                            'e-autocomplete' => "{source : '" . App::router()->getUri('h-connect-contact-autocomplete') . "',
+                                                    'change' : onContactChosen}",
                         ),
                     )),
 
@@ -281,7 +282,7 @@ class AgendaController extends Controller{
                         'name' => 'contacts',
                         'default' => json_encode($contacts, JSON_NUMERIC_CHECK),
                         'attributes' => array(
-                            'ko-value' => 'ko.toJSON(contacts)'
+                            'e-value' => 'contacts.toString()'
                         ),
                     )),
 

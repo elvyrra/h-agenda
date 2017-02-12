@@ -3,6 +3,7 @@
 'use strict';
 
 require(['app'], function() {
+    /*
     var form = app.forms['h-agenda-event-form'];
 
     var cModel = function() {
@@ -22,6 +23,6 @@ require(['app'], function() {
     };
 
 
-    ko.applyBindings(new cModel(), form.node.get(0));
+    ko.applyBindings(new cModel(), form.node.get(0));*/
 })();
 
