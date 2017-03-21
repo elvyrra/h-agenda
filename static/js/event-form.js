@@ -67,13 +67,17 @@ require(['app', 'jquery', 'lang', 'emv'], function() {
         startTime : form.inputs.startTime.val(),
         endTime : form.inputs.endTime.val()
     });
-
     /*
-    emv.$watch(['startTime'], function(value, oldValue) {
-        //alert('Changed from ' + oldValue + ' to ' + value);
-        this.endTime = value;
-        if(oldValue === ""){
-            this.endTime = value;
+    emv.$watch(['startDate'], function(value, oldValue) {
+        try{
+            let s = Date.parse(value);
+            let e = Date.parse(this.endDate);
+
+            if(s.getTime() > e.getTime()){
+                this.endDate = value;
+            }
+        }catch(e){
+            console.log(e);
         }
     });*/
 

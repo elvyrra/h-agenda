@@ -1,19 +1,19 @@
 <div id="h-agenda-calendar-navigation" class="row">
     <div class="col-xs-12">
-        {button icon="list-alt" label="{text key='h-agenda.calendar-back-list'}" ko-click="backToList" class="btn-info pull-left"  }
+        {button icon="list-alt" label="{text key='h-agenda.calendar-back-list'}" e-click="backToList" class="btn-info pull-left"  }
 
-        {button icon="list-alt" label="{text key='h-agenda.btn-add-event-label'}" ko-click="addEvent" class="btn-success pull-left"  }
+        {button icon="list-alt" label="{text key='h-agenda.btn-add-event-label'}" e-click="addEvent" class="btn-success pull-left"  }
 
         {foreach(array('month', 'week') as $period)}
-            <button ko-class="$data.view() === '{{ $period }}' ? 'btn-primary' : 'btn-info'" ko-click="function(){ $data.view('{{ $period }}');}" class="pull-right btn">
+            <button e-class="view === '{{ $period }}' ? 'btn-primary' : 'btn-info'" e-click="changeView('{{ $period }}')" class="pull-right btn">
                 <span class="btn-label">{text key="{'h-agenda.calendar-view-' . $period}"}</span>
             </button>
         {/foreach}
     </div>
     <div class="col-xs-12">
-        {button icon="arrow-left" ko-click="prev" class="pull-left"}
-        <span class="navigation-title center" ko-text="title"></span>
-        {button icon="arrow-right" ko-click="next" class="pull-right"}
+        {button icon="arrow-left" e-click="prev" class="pull-left"}
+        <span class="navigation-title center" e-text="title"></span>
+        {button icon="arrow-right" e-click="next" class="pull-right"}
     </div>
 </div>
 
@@ -41,31 +41,39 @@
             }
         }
     });
-    require(['app', 'underscore', 'calendar', 'calendar-language'], function() {
-        var navigation = {
-            prev : function(){
-                calendar.navigate('prev');
-            },
-            next : function(){
-                calendar.navigate('next');
-            },
-            view : ko.observable($.cookie('h-agenda-calendar-view') || 'month'),
-            title : ko.observable(''),
-            backToList : function(){
-                app.load(app.getUri('h-agenda-index') + '?view=list');
-            },
-            addEvent : function(){
-                app.dialog(app.getUri('h-agenda-edit-event', {id: 0}));
-            },
-        };
 
-        navigation.view.subscribe(function(view) {
-            calendar.view(view);
-            $.cookie('h-agenda-calendar-view', view, 365, '/');
+    require(['app', 'emv', 'underscore', 'calendar', 'calendar-language'], function() {
+        class myModel extends EMV {
+            prev(){
+                calendar.navigate('prev');
+            }
+
+            next(){
+                calendar.navigate('next');
+            }
+
+            backToList(){
+                app.load(app.getUri('h-agenda-index') + '?view=list');
+            }
+
+            addEvent(){
+                app.dialog(app.getUri('h-agenda-edit-event', {id: 0}));
+            }
+
+            changeView(newView){
+                this.view = newView;
+               calendar.view(newView);
+            }
+        }
+
+        const emv = new myModel({
+            data : {
+                view : $.cookie('h-agenda-calendar-view') || 'month',
+                title : ''
+            }
         });
 
-        ko.applyBindings(navigation, document.getElementById('h-agenda-calendar-navigation'));
-
+        emv.$apply(document.getElementById('h-agenda-calendar-navigation'));
 
         var calendar = $('#h-agenda-calendar').calendar({
             events_source : function() {
@@ -74,9 +82,9 @@
             tmpl_path : '{{ $plugin->getStaticUrl() . "js/components/bootstrap-calendar/tmpls/" }}',
             language : '{{ LANGUAGE }}',
             onAfterViewLoad: function(view) {
-                navigation.title(this.getTitle());
+                emv.title = this.getTitle();
             },
-            view : navigation.view(),
+            view : $.cookie('h-agenda-calendar-view') || 'month',
             views : {
                 day : {
                     enable : false
@@ -90,8 +98,12 @@
                 year : {
                     enable : true
                 }
-
             }
+        });
+
+        $('.cal-month-day').click(function(){
+            var date = this.firstElementChild.getAttribute('data-cal-date');
+            app.dialog(app.getUri('h-agenda-edit-event', {id: 0}) + "?date=" + date);
         });
     });
 </script>

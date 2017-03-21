@@ -166,7 +166,11 @@ class HAgendaEvent extends Model{
      * @return string
      */
     public function getFullDescription(){
-        $str = '<div><h4>' . lang::get('h-agenda.description-label') . '</h4>' . $this->description . '</br>';
+        $str = '<div><h3>' . $this->title . '</h3></br>';
+
+        //$str = '<div><h4>' . lang::get('h-agenda.description-label') . '</h4>' . $this->description . '</br>';
+
+        $str .= '<h4>' . lang::get('h-agenda.description-label') . '</h4>' . $this->description . '</br>';
         
         $contacts = HAgendaContact::getAllContactsByEventId($this->id);
 
